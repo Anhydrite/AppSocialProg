@@ -19,7 +19,9 @@ export default class App extends React.Component{
       keyExtractor={(item)=>item.langage.toString()}
       renderItem={({item})=><View style={styles.view}>
       <TouchableOpacity onPress={()=>this._navigationToTipsFromLanguage(item.langage.toString())}>
-      <Text>{item.langage}</Text>
+      <View style={styles.container}>
+      <Text style={styles.text}>{item.langage}</Text>
+      </View>
       </TouchableOpacity>
     </View>}/>
     )
@@ -28,8 +30,19 @@ export default class App extends React.Component{
 
 const styles = StyleSheet.create({
   view:{
+    marginTop:30,
     flex:1,
     flexDirection:"column",
-    alignItems:"center"
-  }
+    alignItems:"center",
+
+  },
+  container:{
+  borderWidth: 5,
+  backgroundColor: '#d6d7da',
+  borderColor: '#d6d7da',
+  borderRadius: 10,
+},
+text:{
+  fontSize:30
+}
 })
